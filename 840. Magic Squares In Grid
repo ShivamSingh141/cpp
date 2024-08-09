@@ -1,0 +1,49 @@
+class Solution {
+public:
+    int numMagicSquaresInside(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        int count = 0;
+        
+        for(int i = 0; i <= m - 3; i++) {
+            for(int j = 0; j <= n - 3; j++) {
+                if(isMagic(grid, i, j)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    
+    bool isMagic(vector<vector<int>>& grid, int x, int y) {
+        int sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0, sum5 = 0, sum6 = 0;
+
+        
+        vector<int> nums(10, 0);
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                int val = grid[x + i][y + j];
+                if(val < 1 || val > 9 || nums[val]++) return false;
+            }
+        }
+
+        
+        for(int i = 0; i < 3; i++) {
+            sum1 += grid[x][y + i];
+            sum3 += grid[x + 2][y + i];
+        }
+        
+        
+        for(int i = 0; i < 3; i++) {
+            sum2 += grid[x + i][y + 2];
+            sum4 += grid[x + i][y];
+        }
+        
+        
+        sum5 = grid[x][y] + grid[x + 1][y + 1] + grid[x + 2][y + 2];
+        sum6 = grid[x][y + 2] + grid[x + 1][y + 1] + grid[x + 2][y];
+        
+        
+        return sum1 == sum2 && sum2 == sum3 && sum3 == sum4 && sum4 == sum5 && sum5 == sum6;
+    }
+};
