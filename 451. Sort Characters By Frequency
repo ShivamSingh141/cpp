@@ -1,0 +1,26 @@
+class Solution {
+public:
+    string frequencySort(string s) {
+        unordered_map<char, int> m;
+        for (char c : s) {
+            m[c]++;
+        }
+
+        // Create a vector of pairs to store characters and their frequencies
+        vector<pair<int, char>> freq;
+        for (auto& x : m) {
+            freq.push_back({x.second, x.first});
+        }
+
+        // Sort the vector based on the frequency in descending order
+        sort(freq.begin(), freq.end(), greater<pair<int, char>>());
+
+        // Build the result string
+        string ans;
+        for (auto& x : freq) {
+            ans.append(x.first, x.second); // Append character x.second, x.first times
+        }
+
+        return ans;
+    }
+};
