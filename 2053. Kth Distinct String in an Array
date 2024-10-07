@@ -8,6 +8,7 @@ for(auto x :arr)
 int count =0; 
 for(auto x:arr){
     count+=(mp[x]==1);
+
     if(count ==k){
         return x;
     }
