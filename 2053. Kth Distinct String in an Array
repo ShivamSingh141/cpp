@@ -10,6 +10,7 @@ for(auto x:arr){
     count+=(mp[x]==1);
 
     if(count ==k){
+
         return x;
     }
 }
