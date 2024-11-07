@@ -6,7 +6,7 @@ public:
         rev=rev*10+num%10;
         num=num/10;
     }
-    return rev;
+    return rev; 
  }
 
     int countDistinctIntegers(vector<int>& nums) {
