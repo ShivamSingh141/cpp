@@ -5,6 +5,7 @@ public:
 unordered_map<string,int> mp;
 for(auto x :arr) 
 ++mp[x];
+
 int count =0; 
 for(auto x:arr){
     count+=(mp[x]==1); 
