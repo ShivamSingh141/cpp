@@ -15,7 +15,7 @@ int M=1e9+7;
         }
         int sum1=0;
         sort(temp.begin(),temp.end());
-        for(int i=left-1;i<=right-1;i++){
+        for(int i=left-1;i<=right-1;i++){ 
             sum1=(sum1+temp[i])%M;
         }
         return sum1;
