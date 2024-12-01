@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int n=height.size();
+        vector<int>l(n);
+        int mini=height[0];
+        l[0]=mini;
+         for(int i=1;i<n;i++){
+            if(height[i]<mini){
+                l[i]=mini;
+            }
+            else{
+                mini=height[i];
+            }
+         }
+         vector<int>h(n);
+         int maxi=height[n-1];
+         for(int i=n-2;i>=0;i--){
+            if(height[i]<maxi){
+                h[i]=maxi;
+            }
+            else{
+                maxi=height[i];
+            }
+         }
+         
+         int ans=0;
+        for(int i=1;i<n-1;i++){
+            if(height[i]<l[i]&&height[i]<h[i]){
+                int water=0;
+               water=min(l[i],h[i])-height[i];
+               ans+=water; 
+            }
+        }
+         return ans;
+        
+    }
+};
