@@ -10,7 +10,7 @@ int M=1e9+7;
                 sum+=nums[j]; 
                 temp.push_back(sum);  
 
-            }   
+            }    
         }
         int sum1=0;
         sort(temp.begin(),temp.end());
