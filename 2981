@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int maximumLength(string s) {
+        int n=s.length();
+        map<pair<char,int>,int>m;
+        for(int i=0;i<n;i++){
+            char ch=s[i];
+            int len=0;
+            for(int j=i;j<n;j++){
+                  if(ch==s[j]){
+                    len++;
+                    m[{ch,len}]++;
+                  }
+                  else{
+                    break;
+                  }
+            }
+        }
+        int result=0;
+        for(auto&it:m){
+          int count=it.first.second;
+          char ch=it.first.first;
+          int freq=it.second;
+          if(freq>=3&&count>result){
+            result=count;
+          }
+        }
+        return result==0?-1:result;
+    }
+};
