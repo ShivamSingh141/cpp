@@ -8,7 +8,7 @@ int M=1e9+7;
              int sum=0;     
             for(int j=i;j<nums.size();j++){  
                 sum+=nums[j]; 
-                temp.push_back(sum);  
+                temp.push_back(sum);   
 
             }    
         }
