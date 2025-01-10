@@ -1,4 +1,4 @@
-class Solution {
+ class Solution {
 public:
  int reverse(int num){
     int rev=0;
