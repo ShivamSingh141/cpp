@@ -1,7 +1,7 @@
                class Solution {
 public:    
     bool canBeEqual(vector<int>& ta rget, vector<int>& arr) {   
-         sort(arr.begin(),arr.end( ));    
+         sort(arr.begin(),arr.end( ));     
         sort(target.begin(),target. end());     
         if(arr.size()!=target.size()){         
             return false;      
