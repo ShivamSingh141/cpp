@@ -11,7 +11,7 @@ int M=1e9+7;
             for(int j=i;j<nums.size();j++){       
                 sum+=nums[j];      
                 temp.push_back(sum);    
-
+ 
             }    
         }
         int sum1=0;
