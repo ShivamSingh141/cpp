@@ -1,0 +1,37 @@
+class Solution {
+    private:
+void solve(vector<int>nums,vector<int> output,int index,vector<vector<int>>&ans,int sum,vector<int>&check){
+    if(index >= nums.size()){
+        ans.push_back(output);
+        check.push_back(sum);
+        return;
+    }
+    solve(nums,output,index+1,ans,sum,check);
+
+    int el=nums[index];
+    output.push_back(el);
+    solve(nums,output,index+1,ans,sum+el,check);
+
+}
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        
+       vector < vector<int>>ans;
+       vector<int>output;
+       int index = 0;
+       int sum=0;
+       vector<int>check;
+        solve(nums,output,index,ans,sum,check);
+        sort(check.begin(),check.end());
+        for (int val : check) {
+    cout << val << " ";
+    }
+            cout << endl;
+
+        return ans;
+
+
+
+        
+    }
+};
