@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string generateTag(string caption) {
+       stringstream ss(caption);
+       string word;
+       vector<string>words;
+       while(ss>>word){
+        words.push_back(word);
+       }
+        string s;
+
+        s.push_back('#');
+        bool isfirstword=true;
+        for( string word:words){
+            if(word.empty())continue;
+            if(isfirstword){
+                for(char&c:word)c=tolower(c);
+                s.append(word);
+                isfirstword=false;
+            }
+            else{
+                word[0]=toupper(word[0]);
+               for(int i=1;i<word.size();i++){
+                word[i]=tolower(word[i]);
+               }
+               s.append(word);
+            }
+
+        }
+        if(s.length()>100){
+            return s.substr(0,100);
+        }
+        return s;
+
+        
+    }
+};
