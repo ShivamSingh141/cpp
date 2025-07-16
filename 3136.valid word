@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isValid(string word) {
+        int n=word.size();
+        //isalnum mtlb ky alphanumeric ,isaplha mtlb alphabets 
+        if(n<3)return false;
+         int vow=0,conso=0;
+        for(int i=0;i<word.size();i++){
+            if(!isalnum(word[i]))return false;
+           char ch=word[i];
+            if(ch=='a'||ch=='A'||ch=='E'||ch=='e'||ch=='I'||ch=='i'||ch=='o'||ch=='O'||ch=='u'||ch=='U'){
+                vow++;
+            }
+            else if(isalpha(ch)){
+                conso++;
+            }
+
+
+        }
+        return vow>=1&&conso>=1;
+        
+    }
+};
