@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int maximumLength(vector<int>& nums) {
+        int n=nums.size();
+        //ya to sb even no.hga tb %2==0,nhi to sb odd hga to %2 0 hga
+        //ya to alternating parity hga tb hi %2 ==1 hga 
+        int counteven=0;
+        int countodd=0;
+        int paritycount=0;//means alternating even odd
+        for(int num:nums){
+            if(num%2==0){
+                counteven++;
+            }
+            else{
+                countodd++;
+            }
+        }
+        int alterlen=1;
+        int parity=nums[0]%2;
+        for(int i=1;i<n;i++){
+            int currparity=nums[i]%2;
+            if(currparity!=parity){
+                alterlen++;
+                parity=currparity;
+            }
+        }
+        int ans=0;
+        ans=max({counteven,countodd,alterlen});
+        return ans;
+    }
+};
